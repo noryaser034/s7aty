@@ -1,51 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:se7ety/core/styles/app_colors.dart';
+import 'package:se7ety/core/styles/text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
-    this.hintText,
-    this.keyboardType,
-    this.validator,
     this.prefixIcon,
-    this.readOnly = false,
-    this.onTap,
-    this.focusNode,
-    this.onChange,
-    this.textInputAction,
+    this.hintText,
     this.controller,
-    this.textAlign = TextAlign.start,
+    this.validator,
   });
-  final String? hintText;
-  final TextInputType? keyboardType;
-  final String? Function(String?)? validator;
   final Widget? prefixIcon;
-  final bool readOnly;
-  final Function()? onTap;
-  final Function(String)? onChange;
-  final FocusNode? focusNode;
-  final TextInputAction? textInputAction;
+  final String? hintText;
   final TextEditingController? controller;
-  final TextAlign textAlign;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      keyboardType: keyboardType,
-      readOnly: readOnly,
-      focusNode: focusNode,
-      textAlign: textAlign,
-      textInputAction: textInputAction,
-      onTapOutside: (event) {
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      decoration: InputDecoration(
-        hintText: hintText,
-        prefixIcon: prefixIcon,
-        // labelText: 'Email',
-      ),
       validator: validator,
-      onChanged: onChange,
-      onTap: onTap,
+      controller: controller,
+      decoration: InputDecoration(
+        prefixIcon: prefixIcon,
+        hintText: hintText,
+        hintStyle: TextStyles.w400s15.copyWith(color: AppColors.accentColor),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide.none,
+        ),
+        filled: true,
+        fillColor: AppColors.secondaryColor,
+      ),
     );
   }
 }

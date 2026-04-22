@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "557374122690",
-    "project_id": "se7ety-134",
-    "storage_bucket": "se7ety-134.firebasestorage.app"
+    "project_number": "862451983205",
+    "project_id": "se7ety-342",
+    "storage_bucket": "se7ety-342.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:557374122690:android:20e3d2070c1d091796695b",
+        "mobilesdk_app_id": "1:862451983205:android:906b42394ed648fd2a378c",
         "android_client_info": {
           "package_name": "com.eraasoft.se7ety"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAGYzP8w3-neLUjn0A1bh0bQfBwTz4MVrw"
+          "current_key": "AIzaSyD8JTwzBI0T4x9NYXmzr9IMiha6Ty9-JQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862451983205:android:6ee4ea38427c5abd2a378c",
+        "android_client_info": {
+          "package_name": "com.eraasoft.se7ety"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8JTwzBI0T4x9NYXmzr9IMiha6Ty9-JQs"
         }
       ],
       "services": {

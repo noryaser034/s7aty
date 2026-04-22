@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:se7ety/core/constants/app_images.dart';
-import 'package:se7ety/core/utils/colors.dart';
+import 'package:se7ety/core/styles/app_colors.dart';
 
 enum DialogType { success, error }
 
@@ -14,7 +14,7 @@ void showMyDialog(
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 600),
       margin: const EdgeInsets.all(10),
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -23,7 +23,7 @@ void showMyDialog(
           : Colors.green,
       content: Row(
         children: [
-          const Icon(Icons.error, color: AppColors.whiteColor, size: 20),
+          const Icon(Icons.error, color: AppColors.bgColor, size: 20),
           const Gap(10),
           Text(errorMsg),
         ],
@@ -37,6 +37,7 @@ void showLoadingDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     barrierColor: AppColors.darkColor.withValues(alpha: 0.7),
-    builder: (context) => Center(child: Lottie.asset(AppImages.loadingJson)),
+    builder: (context) =>
+        Center(child: Lottie.asset(AppImages.loadingJson, width: 250)),
   );
 }
