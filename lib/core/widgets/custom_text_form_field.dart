@@ -8,12 +8,14 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.hintText,
     this.controller,
-    this.validator,
+    this.validator, this.keyboardType, this.readOnly,
   });
   final Widget? prefixIcon;
   final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final bool? readOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
