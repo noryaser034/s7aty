@@ -30,9 +30,9 @@ A modern Flutter mobile application for your Health.
 
 ### 🏠 Home Screen
 
-| Patient Home |
-|---|
-| <img src="screen_shots/patient_home_screen.png" width="300"/> |
+| Patient Home | Update profile |
+|---|---|
+| <img src="screen_shots/patient_home_screen.png" width="300"/> |<img src="screen_shots/doctorRegister.png" width="300"/> |
 
 ---
 
