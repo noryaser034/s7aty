@@ -5,11 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/constants/app_images.dart';
+import 'package:se7ety/core/constants/user_type_enum.dart';
 import 'package:se7ety/core/functions/app_validators.dart';
 import 'package:se7ety/core/functions/navigations.dart';
 import 'package:se7ety/core/routes/routes.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/colors.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 import 'package:se7ety/core/widgets/app_button.dart';
 import 'package:se7ety/core/widgets/custom_text_form_field.dart';
 import 'package:se7ety/core/widgets/dialogs.dart';
@@ -20,7 +21,7 @@ import 'package:se7ety/features/auth/presentation/widgets/auth_footer.dart';
 
 class RigesterScreen extends StatelessWidget {
   const RigesterScreen({super.key, required this.user});
-  final String user;
+  final UserTypeEnum user;
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
@@ -30,10 +31,10 @@ class RigesterScreen extends StatelessWidget {
         } else if (state is AuthSuccessState) {
           log("success");
           pop(context);
-          pushAndClearStack(AppRoutes.patientMain, context);
+          pushAndClearStack(Routes.patientMainApp, context);
         } else if (state is AuthErrorState) {
           pop(context);
-          showMyDialog(context, state.errorMessage);
+          showMyDialog(context, state.message);
         }
       },
       child: Scaffold(
@@ -41,7 +42,7 @@ class RigesterScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
-              pushAndClearStack(AppRoutes.welcome, context);
+              pushAndClearStack(Routes.welcome, context);
             },
             icon: SvgPicture.asset(AppImages.backIconSvg, height: 20),
           ),
@@ -51,7 +52,7 @@ class RigesterScreen extends StatelessWidget {
           text: "لديك حساب؟",
           textButton: "سجل دخول",
           onPressed: () {
-            pushTo(AppRoutes.login, context, extra: user);
+            pushTo(Routes.login, context, extra: user);
           },
         ),
       ),
@@ -79,7 +80,7 @@ class RigesterScreen extends StatelessWidget {
 
               Gap(20),
               CustomTextFormField(
-                hintText: "اسم المستخدم",
+                hintTextText: "اسم المستخدم",
                 prefixIcon: const Icon(
                   Icons.person,
                   color: AppColors.primaryColor,
@@ -93,7 +94,7 @@ class RigesterScreen extends StatelessWidget {
               ),
               Gap(20),
               CustomTextFormField(
-                hintText: "nour@example.com",
+                hintTextText: "nour@example.com",
                 prefixIcon: const Icon(
                   Icons.email,
                   color: AppColors.primaryColor,
@@ -107,8 +108,8 @@ class RigesterScreen extends StatelessWidget {
               ),
               Gap(20),
               PasswordTextFormField(
-                hint: "***********",
-                passwordController: cubit.passwordController,
+                hintText: "***********",
+                controller: cubit.passwordController,
                 validator: AppValidators.password(
                   emptyMessage: "كلمة المرور مطلوبة",
                   invalidMessage: "كلمة المرور غير صالحة",

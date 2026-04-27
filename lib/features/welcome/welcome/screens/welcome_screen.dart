@@ -3,8 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:se7ety/core/constants/app_images.dart';
 import 'package:se7ety/core/functions/navigations.dart';
 import 'package:se7ety/core/routes/routes.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/colors.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 import 'package:se7ety/features/welcome/welcome/widgets/user_type_card.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(AppImages.welcomeBg),
+          Image.asset(AppImages.bg),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(20),
@@ -53,22 +53,14 @@ class WelcomeScreen extends StatelessWidget {
                           UserTypeCard(
                             title: "دكتور",
                             onTap: () {
-                              pushTo(
-                                AppRoutes.register,
-                                context,
-                                extra: "دكتور",
-                              );
+                              pushTo(Routes.register, context, extra: "دكتور");
                             },
                           ),
                           Gap(20),
                           UserTypeCard(
                             title: "مريض",
                             onTap: () {
-                              pushTo(
-                                AppRoutes.register,
-                                context,
-                                extra: "مريض",
-                              );
+                              pushTo(Routes.register, context, extra: "مريض");
                             },
                           ),
                         ],

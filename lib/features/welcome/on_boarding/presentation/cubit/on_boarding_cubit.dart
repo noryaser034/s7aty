@@ -11,17 +11,17 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
 
   final List<OnBoardingModel> pages = [
     OnBoardingModel(
-      image: AppImages.onboarding1Svg,
+      image: AppImages.on1Svg,
       title: 'ابحث عن طبيب متخصص',
       body: 'اكتشف مجموعة واسعة من الأطباء الخبراء والمتخصصين في مختلف المجالات الطبية.',
     ),
     OnBoardingModel(
-      image: AppImages.onboarding2Svg,
+      image: AppImages.on2Svg,
       title: 'احجز موعدك بسهولة',
       body: 'قم بحجز مواعيدك الطبية بضغطة زر وبكل سهولة في أي وقت ومن أي مكان.',
     ),
     OnBoardingModel(
-      image: AppImages.onboarding3Svg,
+      image: AppImages.on3Svg,
       title: 'آمن وسري',
       body: 'كن مطمئنا لأن بياناتك الصحية آمنة ومحمية بأعلى معايير الخصوصية.',
     ),

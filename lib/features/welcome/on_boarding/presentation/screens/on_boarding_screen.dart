@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:se7ety/core/functions/navigations.dart';
 import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/service/local/shared_pref.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 import 'package:se7ety/core/widgets/app_button.dart';
 import 'package:se7ety/features/welcome/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:se7ety/features/welcome/on_boarding/presentation/widgets/onboarding_indicator.dart';
@@ -74,8 +74,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           if (cubit.isLastPage) {
                             SharedPref.setOnboardingShown();
                             // Uncomment context.pushReplacement when builder for /login is ready.
-                            // context.pushReplacement(AppRoutes.login);
-                            pushAndClearStack(AppRoutes.welcome, context);
+                            // context.pushReplacement(Routes.login);
+                            pushAndClearStack(Routes.welcome, context);
                           } else {
                             _pageController.nextPage(
                               duration: const Duration(milliseconds: 300),

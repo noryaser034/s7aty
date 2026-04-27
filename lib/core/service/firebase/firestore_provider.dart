@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:se7ety/features/auth/data/models/doctor_model.dart';
 import 'package:se7ety/features/auth/data/models/patient_model.dart';
 
-class FirestoreProvider {
-  static final doctorCollection = FirebaseFirestore.instance.collection(
-    "doctors",
-  );
-  static final patientCollection = FirebaseFirestore.instance.collection(
-    "patients",
-  );
+class FirebaseProvider {
+  static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  static final FirebaseAuth _auth = FirebaseAuth.instance;
+  static final patientCollection = _firestore.collection("patient");
+  static final doctorCollection = _firestore.collection("doctor");
+
+  static User? get currentUser => _auth.currentUser;
 
   static Future<void> addPatient(PatientModel patient) async {
     await patientCollection.doc(patient.uid).set(patient.toJson());
@@ -16,5 +17,20 @@ class FirestoreProvider {
 
   static Future<void> addDoctor(DoctorModel doctor) async {
     await doctorCollection.doc(doctor.uid).set(doctor.toJson());
+  }
+
+  static Future<void> updateDoctor(DoctorModel doctor) async {
+    await doctorCollection.doc(doctor.uid).update(doctor.toUpdateData());
+  }
+
+  static Future<QuerySnapshot> getDoctors() async {
+    return await doctorCollection.get();
+  }
+
+  static Future<QuerySnapshot> sortingDoctors() async {
+    return await doctorCollection
+        .where("specialization", isNull: false)
+        .orderBy("rating", descending: true)
+        .get();
   }
 }

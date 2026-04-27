@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
+import 'package:se7ety/core/style/colors.dart';
 import 'package:se7ety/features/welcome/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 
 class OnboardingIndicator extends StatelessWidget {

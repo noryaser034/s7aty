@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
+import 'package:se7ety/core/style/colors.dart';
 import 'package:se7ety/features/home/presentation/screens/patient_home_screen.dart';
 
 class PatientMainAppScreen extends StatefulWidget {

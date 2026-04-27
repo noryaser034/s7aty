@@ -5,11 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/constants/app_images.dart';
+import 'package:se7ety/core/constants/user_type_enum.dart';
 import 'package:se7ety/core/functions/app_validators.dart';
 import 'package:se7ety/core/functions/navigations.dart';
 import 'package:se7ety/core/routes/routes.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/colors.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 import 'package:se7ety/core/widgets/app_button.dart';
 import 'package:se7ety/core/widgets/custom_text_form_field.dart';
 import 'package:se7ety/core/widgets/dialogs.dart';
@@ -20,7 +21,7 @@ import 'package:se7ety/features/auth/presentation/widgets/auth_footer.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key, required this.user});
-  final String user;
+  final UserTypeEnum user;
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
@@ -30,10 +31,10 @@ class LoginScreen extends StatelessWidget {
         } else if (state is AuthSuccessState) {
           pop(context);
           log("Login Success");
-          pushAndClearStack(AppRoutes.patientMain, context);
+          pushAndClearStack(Routes.patientMainApp, context);
         } else if (state is AuthErrorState) {
           pop(context);
-          showMyDialog(context, state.errorMessage);
+          showMyDialog(context, state.message);
         }
       },
       child: Scaffold(
@@ -41,7 +42,7 @@ class LoginScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
-              pushAndClearStack(AppRoutes.welcome, context);
+              pushAndClearStack(Routes.welcome, context);
             },
             icon: SvgPicture.asset(AppImages.backIconSvg, height: 20),
           ),
@@ -51,7 +52,7 @@ class LoginScreen extends StatelessWidget {
           text: "ليس لديك حساب؟",
           textButton: "سجل الان",
           onPressed: () {
-            pushTo(AppRoutes.register, context, extra: user);
+            pushTo(Routes.register, context, extra: user);
           },
         ),
       ),
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
               Gap(20),
 
               CustomTextFormField(
-                hintText: "nour@example.com",
+                hintTextText: "nour@example.com",
                 prefixIcon: const Icon(
                   Icons.email,
                   color: AppColors.primaryColor,
@@ -95,8 +96,8 @@ class LoginScreen extends StatelessWidget {
               ),
               Gap(20),
               PasswordTextFormField(
-                hint: "***********",
-                passwordController: cubit.passwordController,
+                hintText: "***********",
+                controller: cubit.passwordController,
                 validator: AppValidators.password(
                   emptyMessage: "كلمة المرور مطلوبة",
                   invalidMessage: "كلمة المرور غير صالحة",

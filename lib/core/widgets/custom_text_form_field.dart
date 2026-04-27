@@ -1,37 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
+    this.hintTextText,
+    this.keyboardType,
+    this.validator,
     this.prefixIcon,
-    this.hintText,
+    this.readOnly = false,
+    this.onTap,
+    this.focusNode,
+    this.onChange,
+    this.textInputAction,
     this.controller,
-    this.validator, this.keyboardType, this.readOnly,
+    this.textAlign = TextAlign.start,
+    this.maxLines,
+    this.inputFormatter,
   });
-  final Widget? prefixIcon;
-  final String? hintText;
-  final TextEditingController? controller;
-  final String? Function(String?)? validator;
+  final String? hintTextText;
   final TextInputType? keyboardType;
-  final bool? readOnly;
+  final String? Function(String?)? validator;
+  final Widget? prefixIcon;
+  final bool readOnly;
+  final Function()? onTap;
+  final Function(String)? onChange;
+  final FocusNode? focusNode;
+  final TextInputAction? textInputAction;
+  final TextEditingController? controller;
+  final TextAlign textAlign;
+  final int? maxLines;
+  final List<TextInputFormatter>? inputFormatter;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: validator,
+      inputFormatters: inputFormatter,
+      maxLines: maxLines,
       controller: controller,
+      keyboardType: keyboardType,
+      readOnly: readOnly,
+      focusNode: focusNode,
+      textAlign: textAlign,
+      textInputAction: textInputAction,
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       decoration: InputDecoration(
+         hintText: hintTextText,
         prefixIcon: prefixIcon,
-        hintText: hintText,
-        hintStyle: TextStyles.w400s15.copyWith(color: AppColors.accentColor),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide.none,
-        ),
-        filled: true,
-        fillColor: AppColors.secondaryColor,
+        // labelText: 'Email',
       ),
+      validator: validator,
+      onChanged: onChange,
+      onTap: onTap,
     );
   }
 }

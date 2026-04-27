@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/constants/app_images.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/colors.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 
 class DoctorCard extends StatelessWidget {
-  const DoctorCard({
-    super.key,
-  });
+  const DoctorCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class DoctorCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset(AppImages.docPic1, height: 65),
+            Image.asset(AppImages.doctor1, height: 65),
             const Gap(10),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,

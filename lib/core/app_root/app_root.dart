@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:se7ety/core/routes/routes.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
+import 'package:se7ety/core/routes/app_router.dart';
+import 'package:se7ety/core/style/colors.dart';
 
 class Se7ety extends StatelessWidget {
   const Se7ety({super.key});
@@ -10,9 +10,14 @@ class Se7ety extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routerConfig: AppRoutes.routes,
+
+      
+      routerConfig: AppRouter.routes,
+
       locale: const Locale('ar'),
-      supportedLocales: const [Locale('ar')],
+      supportedLocales: const [
+        Locale('ar'),
+      ],
 
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -23,6 +28,7 @@ class Se7ety extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Cairo',
         scaffoldBackgroundColor: AppColors.bgColor,
+
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.bgColor,
           elevation: 0,

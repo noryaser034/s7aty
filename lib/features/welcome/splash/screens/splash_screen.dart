@@ -20,11 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
       if (FirebaseAuth.instance.currentUser != null) {
-        pushAndClearStack(AppRoutes.patientMain, context);
+        pushAndClearStack(Routes.patientMainApp, context);
       } else if (SharedPref.isOnboardingShown()) {
-        pushAndClearStack(AppRoutes.welcome, context);
+        pushAndClearStack(Routes.welcome, context);
       } else {
-        pushAndClearStack(AppRoutes.onboarding, context);
+        pushAndClearStack(Routes.onboarding, context);
       }
     });
   }

@@ -1,16 +1,20 @@
 abstract class AppImages {
   static const String logo = 'assets/images/logo.png';
-  static const String onboarding1Svg = 'assets/images/onboarding1.svg';
-  static const String onboarding2Svg = 'assets/images/onboarding2.svg';
-  static const String onboarding3Svg = 'assets/images/onboarding3.svg';
-  static const String welcomeBg = 'assets/images/welcome-bg.png';
-  static const String backIconSvg = "assets/icons/back.svg";
-  static const String profileIconSvg = "assets/icons/profile.svg";
-  static const String emailIconSvg = "assets/icons/email.svg";
-  static const String passwordIconSvg = "assets/icons/password.svg";
-  static const String loadingJson = "assets/images/loading.json";
-  static const String homeAppBar = "assets/images/home_app_bar.png";
-  static const String notificationsIconSvg = "assets/icons/notifications.svg";
-  static const String specialty1Svg = "assets/images/Specializations-card.svg";
-  static const String docPic1 = "assets/images/doc_pic.png";
+  static const String bg = 'assets/images/welcome-bg.png';
+  static const String docPlaceholder = 'assets/images/doc.png';
+  static const String doctor1 = 'assets/images/doctor1.png';
+  static const String doctorCardSvg = 'assets/images/doctor-card.svg';
+  static const String on1Svg = 'assets/images/on1.svg';
+  static const String on2Svg = 'assets/images/on2.svg';
+  static const String on3Svg = 'assets/images/on3.svg';
+  static const String noSearchSvg = 'assets/images/no-search.svg';
+  static const String noScheduledSvg = 'assets/images/no_scheduled.svg';
+  static const String loadingJson = 'assets/images/loading.json';
+  static const String notification =
+      'assets/icons/notificationIconSvg.svg';
+  static const String specialty1Svg =
+      'assets/images/Specializations-card.svg';
+
+  static const String backIconSvg =
+      'assets/icons/backIconSvg.svg';
 }

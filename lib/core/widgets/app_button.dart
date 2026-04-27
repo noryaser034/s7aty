@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
+import 'package:se7ety/core/style/colors.dart';
 
 class AppButton extends StatelessWidget {
   final String? text;
@@ -27,7 +27,10 @@ class AppButton extends StatelessWidget {
     this.isLoading = false,
     this.isDisabled = false,
     this.child,
-  }) : assert(text != null || child != null, 'Either text or child must be provided.');
+  }) : assert(
+         text != null || child != null,
+         'Either text or child must be provided.',
+       );
 
   @override
   Widget build(BuildContext context) {
@@ -55,16 +58,17 @@ class AppButton extends StatelessWidget {
                 ),
               )
             : (child ??
-                Text(
-                  text!,
-                  style: textStyle ??
-                      TextStyle(
-                        color: textColor ?? Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                  textAlign: TextAlign.center,
-                )),
+                  Text(
+                    text!,
+                    style:
+                        textStyle ??
+                        TextStyle(
+                          color: textColor ?? Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                    textAlign: TextAlign.center,
+                  )),
       ),
     );
   }

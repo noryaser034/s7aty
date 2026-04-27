@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/colors.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 import 'package:se7ety/core/widgets/app_button.dart';
 import 'package:se7ety/core/widgets/custom_text_form_field.dart';
 
@@ -49,21 +49,25 @@ class CompleteRegisterScreen extends StatelessWidget {
               child: Text('التخصص', style: TextStyles.w400s15),
             ),
             const SizedBox(height: 8),
-            const CustomTextFormField(hintText: 'دكتور عظام'),
+            const CustomTextFormField(hintTextText: 'دكتور عظام'),
             const SizedBox(height: 16),
             const Align(
               alignment: Alignment.centerRight,
               child: Text('نبذة تعريفية', style: TextStyles.w400s15),
             ),
             const SizedBox(height: 8),
-            const CustomTextFormField(hintText: 'سجل الوصف الوظيفي الخاص بك'),
+            const CustomTextFormField(
+              hintTextText: 'سجل الوصف الوظيفي الخاص بك',
+            ),
             const SizedBox(height: 16),
             const Align(
               alignment: Alignment.centerRight,
               child: Text('عنوان العيادة', style: TextStyles.w400s15),
             ),
             const SizedBox(height: 8),
-            const CustomTextFormField(hintText: '5 شارع مصدق - الدقي - الجيزة'),
+            const CustomTextFormField(
+              hintTextText: '5 شارع مصدق - الدقي - الجيزة',
+            ),
             const SizedBox(height: 16),
             Row(
               children: [
@@ -74,7 +78,7 @@ class CompleteRegisterScreen extends StatelessWidget {
                       Text('ساعات العمل من', style: TextStyles.w400s15),
                       SizedBox(height: 8),
                       CustomTextFormField(
-                        hintText: 'AM 10:00',
+                        hintTextText: 'AM 10:00',
                         prefixIcon: Icon(Icons.access_time),
                         readOnly: true,
                       ),
@@ -89,7 +93,7 @@ class CompleteRegisterScreen extends StatelessWidget {
                       Text('إلى', style: TextStyles.w400s15),
                       SizedBox(height: 8),
                       CustomTextFormField(
-                        hintText: 'PM 10:00',
+                        hintTextText: 'PM 10:00',
                         prefixIcon: Icon(Icons.access_time),
                       ),
                     ],
@@ -104,7 +108,7 @@ class CompleteRegisterScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const CustomTextFormField(
-              hintText: '20xxxxxxxxx+',
+              hintTextText: '20xxxxxxxxx+',
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 16),
@@ -114,7 +118,7 @@ class CompleteRegisterScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const CustomTextFormField(
-              hintText: '20xxxxxxxxx+',
+              hintTextText: '20xxxxxxxxx+',
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 24),

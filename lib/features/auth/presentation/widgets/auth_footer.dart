@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:se7ety/core/styles/app_colors.dart';
-import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/style/colors.dart';
+import 'package:se7ety/core/style/text_styles.dart';
 
 class AuthFooter extends StatelessWidget {
   const AuthFooter({
